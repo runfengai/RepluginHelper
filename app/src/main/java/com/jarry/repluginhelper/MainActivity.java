@@ -2,20 +2,12 @@ package com.jarry.repluginhelper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.app.Instrumentation;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-import com.jarry.repluginhelper.reflect.AMSHook;
-import com.jarry.repluginhelper.reflect.ActivityHook;
-import com.jarry.repluginhelper.reflect.RefInvoke;
-import com.jarry.repluginhelper.test.AMSHookHelper;
-
-import java.lang.reflect.InvocationTargetException;
+import com.jarry.repluginhelper.test01.AMSHookHelper;
 
 public class MainActivity extends AppCompatActivity {
     @Override

@@ -1,4 +1,4 @@
-package com.jarry.repluginhelper.test;
+package com.jarry.repluginhelper.test01;
 
 import android.content.ComponentName;
 import android.content.Intent;

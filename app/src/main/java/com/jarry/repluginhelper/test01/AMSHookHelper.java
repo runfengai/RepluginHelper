@@ -1,4 +1,4 @@
-package com.jarry.repluginhelper.test;
+package com.jarry.repluginhelper.test01;
 
 import android.app.Activity;
 import android.app.Instrumentation;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Parcelable;
 import android.util.Log;
 
 import com.jarry.repluginhelper.reflect.RefInvoke;
@@ -37,11 +36,11 @@ public class AMSHookHelper {
      */
     public static void hookAMN() {
         Object obj = null;
-//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
-//            obj = RefInvoke.getStaticFieldObject("android.app.ActivityManager", "IActivityManagerSingleton");
-//        } else {
-        obj = RefInvoke.getStaticFieldObject("android.app.ActivityManagerNative", "gDefault");
-//        }
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+            obj = RefInvoke.getStaticFieldObject("android.app.ActivityManager", "IActivityManagerSingleton");
+        } else {
+            obj = RefInvoke.getStaticFieldObject("android.app.ActivityManagerNative", "gDefault");
+        }
         final Object fieldObject = RefInvoke.getFieldObject("android.util.Singleton", obj, "mInstance");
         Class<?> clazz = null;
         try {
@@ -96,7 +95,7 @@ public class AMSHookHelper {
         @Override
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
-                case 100:
+                case 100://仅在api 25及一下
                     handleStartAct(msg);
                     break;
             }
