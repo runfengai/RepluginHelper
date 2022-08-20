@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RepluginHelper">
         <activity
+            android:name=".StubActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity2"
             android:exported="true" />
         <activity
