@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19739583333333333" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_main_resource.xml" value="0.16770833333333332" />
         <entry key="app/src/main/res/layout/activity_stub.xml" value="0.335" />
+        <entry key="dynamicresource1/src/main/res/layout/activity_main.xml" value="0.146875" />
       </map>
     </option>
   </component>

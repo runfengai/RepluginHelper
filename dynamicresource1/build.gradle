@@ -6,9 +6,9 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.jarry.repluginhelper"
+        applicationId "com.jarry.dynamicresource1"
         minSdk 21
-        targetSdk 25
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -37,3 +37,21 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation project(path: ':mypluginlibrary')
 }
+
+
+    android.applicationVariants.all { variant ->
+        // Copy Release artifact to HostApp's assets and rename
+        println "打包>>>>>>>>" + variant.buildType.name
+        if (variant.buildType.name == "release") {
+            variant.outputs.each { output ->
+                File originFile = output.outputFile
+                println originFile.absolutePath
+                copy {
+                    from originFile
+                    into "$rootDir/app/src/main/assets"
+                    rename(originFile.name, "plugin1.apk")
+                }
+            }
+        }
+    }
+

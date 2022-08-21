@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DynamicResource1</string>
+    <string name="plugin_name">DynamicResource1</string>
+</resources>
