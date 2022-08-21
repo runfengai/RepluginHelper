@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jarry.pluginlibrary.IDynamic;
+import com.jarry.mypluginlibrary.IDynamic;
 import com.jarry.repluginhelper.R;
 
 import java.io.File;

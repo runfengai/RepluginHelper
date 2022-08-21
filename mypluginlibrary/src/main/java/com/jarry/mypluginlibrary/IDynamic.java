@@ -1,4 +1,4 @@
-package com.jarry.pluginlibrary;
+package com.jarry.mypluginlibrary;
 
 import android.content.Context;
 

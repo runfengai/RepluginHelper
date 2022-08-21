@@ -39,19 +39,19 @@ dependencies {
 }
 
 
-    android.applicationVariants.all { variant ->
-        // Copy Release artifact to HostApp's assets and rename
-        println "打包>>>>>>>>" + variant.buildType.name
-        if (variant.buildType.name == "release") {
-            variant.outputs.each { output ->
-                File originFile = output.outputFile
-                println originFile.absolutePath
-                copy {
-                    from originFile
-                    into "$rootDir/app/src/main/assets"
-                    rename(originFile.name, "plugin1.apk")
-                }
+android.applicationVariants.all { variant ->
+    // Copy Release artifact to HostApp's assets and rename
+    println "打包>>>>>>>>" + variant.buildType.name
+    if (variant.buildType.name == "debug") {
+        variant.outputs.each { output ->
+            File originFile = output.outputFile
+            println originFile.absolutePath
+            copy {
+                from originFile
+                into "$rootDir/app/src/main/assets"
+                rename(originFile.name, "plugin1.apk")
             }
         }
     }
+}
 
