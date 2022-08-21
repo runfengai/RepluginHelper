@@ -53,9 +53,8 @@ public class ResourceMainActivity extends AppCompatActivity {
 
         File extractFile = this.getFileStreamPath(apkName);
         dexpath = extractFile.getPath();
-
         fileRelease = getDir("dex", 0); //0 表示Context.MODE_PRIVATE
-
+//        创建对应classLoader
         classLoader = new DexClassLoader(dexpath,
                 fileRelease.getAbsolutePath(), null, getClassLoader());
 
@@ -69,11 +68,9 @@ public class ResourceMainActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 loadResources();
                 Class mLoadClassDynamic = null;
-
                 try {
                     mLoadClassDynamic = classLoader.loadClass("com.jarry.dynamicresource1.Dynamic");
                     Object dynamicObject = mLoadClassDynamic.newInstance();
-
                     IDynamic dynamic = (IDynamic) dynamicObject;
                     String content = dynamic.getStringForResId(ResourceMainActivity.this);
                     tv.setText(content);
@@ -94,8 +91,8 @@ public class ResourceMainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        mResources = new Resources(mAssetManager, super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+        mResources = new Resources(mAssetManager, super.getResources().getDisplayMetrics(),
+                super.getResources().getConfiguration());
         mTheme = mResources.newTheme();
         mTheme.setTo(super.getTheme());
     }
